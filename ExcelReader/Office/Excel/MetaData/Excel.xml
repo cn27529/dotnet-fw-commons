@@ -1,0 +1,805 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfElement xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Element Name="Record" Category="Records">
+    <IsAbstract>true</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>true</HasChild>
+    <Members />
+  </Element>
+  <Element Name="BOF" Parent="Record" Category="Records">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members>
+      <Member Name="BIFFversion" Type="UInt16" Group="Field" />
+      <Member Name="StreamType" Type="UInt16" Group="Field" />
+      <Member Name="BuildID" Type="UInt16" Group="Field" />
+      <Member Name="BuildYear" Type="UInt16" Group="Field" />
+      <Member Name="FileHistoryFlags" Type="UInt32" Group="Field" />
+      <Member Name="RequiredExcelVersion" Type="UInt32" Group="Field">
+        <Summary>Lowest Excel version that can read all records in this file</Summary>
+      </Member>
+    </Members>
+  </Element>
+  <Element Name="ARRAY" Parent="Record" Category="Records">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members />
+  </Element>
+  <Element Name="BACKUP" Parent="Record" Category="Records">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members>
+      <Member Name="CreateBackupOnSaving" Type="UInt16" Group="Field">
+        <Summary>whether Excel makes a backup of the file while saving</Summary>
+      </Member>
+    </Members>
+  </Element>
+  <Element Name="BLANK" Parent="Record" Category="Records">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members>
+      <Member Name="RowIndex" Type="UInt16" Group="Field" />
+      <Member Name="ColIndex" Type="UInt16" Group="Field" />
+      <Member Name="XFIndex" Type="UInt16" Group="Field" />
+    </Members>
+  </Element>
+  <Element Name="BOOKBOOL" Parent="Record" Category="Records">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members>
+      <Member Name="NotSaveExternalLinkedValues" Type="UInt16" Group="Field">
+        <Summary>0 = Save external linked values; 1 = Do not save external linked values</Summary>
+      </Member>
+    </Members>
+  </Element>
+  <Element Name="BOOLERR" Parent="Record" Category="Records">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members>
+      <Member Name="RowIndex" Type="UInt16" Group="Field" />
+      <Member Name="ColIndex" Type="UInt16" Group="Field" />
+      <Member Name="XFIndex" Type="UInt16" Group="Field" />
+      <Member Name="Value" Type="Byte" Group="Field">
+        <Summary>Boolean or error value (type depends on the following byte)</Summary>
+      </Member>
+      <Member Name="ValueType" Type="Byte" Group="Field">
+        <Summary>0 = Boolean value; 1 = Error code</Summary>
+      </Member>
+    </Members>
+  </Element>
+  <Element Name="BOTTOMMARGIN" Parent="Record" Category="Records">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members>
+      <Member Name="Value" Type="Double" Group="Field">
+        <Summary>Bottom page margin in inches (IEEE 754 floating-point value, 64-bit double precision)</Summary>
+      </Member>
+    </Members>
+  </Element>
+  <Element Name="BOUNDSHEET" Parent="Record" Category="Records">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members>
+      <Member Name="StreamPosition" Type="UInt32" Group="Field">
+        <Summary>Absolute stream position of the BOF record of the sheet represented by this record.</Summary>
+      </Member>
+      <Member Name="Visibility" Type="Byte" Group="Field">
+        <Summary>00H = Visible, 01H = Hidden, 02H = Strong hidden</Summary>
+      </Member>
+      <Member Name="SheetType" Type="Byte" Group="Field">
+        <Summary>00H = Worksheet, 02H = Chart, 06H = Visual Basic module</Summary>
+      </Member>
+      <Member Name="SheetName" FriendlyName="8" Type="String" Group="Field">
+        <Summary>BIFF8: Unicode string, 8-bit string length</Summary>
+      </Member>
+    </Members>
+  </Element>
+  <Element Name="CALCCOUNT" Parent="Record" Category="Records">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members>
+      <Member Name="Value" Type="UInt16" Group="Field">
+        <Summary>Maximum number of iterations allowed in circular references</Summary>
+      </Member>
+    </Members>
+  </Element>
+  <Element Name="CALCMODE" Parent="Record" Category="Records">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members>
+      <Member Name="Value" Type="UInt16" Group="Field">
+        <Summary>whether to calculate formulas manually,automatically or automatically except for multiple table operations.</Summary>
+      </Member>
+    </Members>
+  </Element>
+  <Element Name="CODEPAGE" Parent="Record" Category="Records">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members>
+      <Member Name="CodePageIdentifier" Type="UInt16" Group="Field">
+        <Summary>text encoding used to write byte strings</Summary>
+      </Member>
+    </Members>
+  </Element>
+  <Element Name="DIMENSIONS" Parent="Record" Category="Records">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members>
+      <Member Name="FirstRow" Type="Int32" Group="Field">
+        <Summary>Index to first used row</Summary>
+      </Member>
+      <Member Name="LastRow" Type="Int32" Group="Field">
+        <Summary>Index to last used row, increased by 1</Summary>
+      </Member>
+      <Member Name="FirstColumn" Type="Int16" Group="Field">
+        <Summary>Index to first used column</Summary>
+      </Member>
+      <Member Name="LastColumn" Type="Int16" Group="Field">
+        <Summary>Index to last used column, increased by 1</Summary>
+      </Member>
+      <Member Name="UnUsed" Type="Int16" Group="Field">
+        <Summary>Not used</Summary>
+      </Member>
+    </Members>
+  </Element>
+  <Element Name="LABELSST" Parent="Record" Category="Records">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members>
+      <Member Name="RowIndex" Type="UInt16" Group="Field" />
+      <Member Name="ColIndex" Type="UInt16" Group="Field" />
+      <Member Name="XFIndex" Type="UInt16" Group="Field" />
+      <Member Name="SSTIndex" Type="Int32" Group="Field">
+        <Summary>Index into SST record</Summary>
+      </Member>
+    </Members>
+  </Element>
+  <Element Name="MULBLANK" Parent="Record" Category="Records">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members>
+      <Member Name="RowIndex" Type="UInt16" Group="Field">
+        <Summary>Index to row</Summary>
+      </Member>
+      <Member Name="FirstColIndex" Type="UInt16" Group="Field">
+        <Summary>Index to first column (fc)</Summary>
+      </Member>
+      <Member Name="XFIndice" Type="UInt16" Group="Field">
+        <Summary>List of nc=lc-fc+1 16-bit indexes to XF records</Summary>
+      </Member>
+      <Member Name="LastColIndex" Type="Int16" Group="Field">
+        <Summary>Index to last column (lc)</Summary>
+      </Member>
+    </Members>
+  </Element>
+  <Element Name="MULRK" Parent="Record" Category="Records">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>true</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members>
+      <Member Name="RowIndex" Type="UInt16" Group="Field">
+        <Summary>Index to row</Summary>
+      </Member>
+      <Member Name="FirstColIndex" Type="UInt16" Group="Field">
+        <Summary>Index to first column (fc)</Summary>
+      </Member>
+      <Member Name="XFRKList" Type="List&lt;UInt32&gt;" Group="Field">
+        <Summary>List of nc=lc-fc+1 XF/RK structures.</Summary>
+      </Member>
+      <Member Name="LastColIndex" Type="Int16" Group="Field">
+        <Summary>Index to last column (lc)</Summary>
+      </Member>
+    </Members>
+  </Element>
+  <Element Name="NUMBER" Parent="Record" Category="Records">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members>
+      <Member Name="RowIndex" Type="UInt16" Group="Field" />
+      <Member Name="ColIndex" Type="UInt16" Group="Field" />
+      <Member Name="XFIndex" Type="UInt16" Group="Field" />
+      <Member Name="Value" Type="Double" Group="Field">
+        <Summary>IEEE 754 floating-point value (64-bit double precision)</Summary>
+      </Member>
+    </Members>
+  </Element>
+  <Element Name="RK" Parent="Record" Category="Records">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members>
+      <Member Name="RowIndex" Type="UInt16" Group="Field" />
+      <Member Name="ColIndex" Type="UInt16" Group="Field" />
+      <Member Name="XFIndex" Type="UInt16" Group="Field" />
+      <Member Name="Value" Type="UInt32" Group="Field">
+        <Summary>RK value</Summary>
+      </Member>
+    </Members>
+  </Element>
+  <Element Name="ROW" Parent="Record" Category="Records">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members>
+      <Member Name="RowIndex" Type="UInt16" Group="Field">
+        <Summary>Index of this row</Summary>
+      </Member>
+      <Member Name="FirstColIndex" Type="UInt16" Group="Field">
+        <Summary>Index to column of the first cell which is described by a cell record</Summary>
+      </Member>
+      <Member Name="LastColIndex" Type="Int16" Group="Field">
+        <Summary>Index to column of the last cell which is described by a cell record, increased by 1</Summary>
+      </Member>
+      <Member Name="RowHeight" Type="UInt16" Group="Field" />
+      <Member Name="UnUsed" Type="UInt16" Group="Field" />
+      <Member Name="UnUsed2" Type="UInt16" Group="Field" />
+      <Member Name="Flags" Type="UInt32" Group="Field">
+        <Summary>Option flags and default row formatting</Summary>
+      </Member>
+    </Members>
+  </Element>
+  <Element Name="RSTRING" Parent="Record" Category="Records">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members>
+      <Member Name="FormattingRuns" FriendlyName="" Type="UInt32" Group="Field">
+        <Summary>List of rt formatting runs</Summary>
+      </Member>
+    </Members>
+  </Element>
+  <Element Name="SST" Parent="Record" Category="Records">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>true</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members>
+      <Member Name="TotalOccurance" Type="Int32" Group="Field">
+        <Summary>Total number of strings in the workbook</Summary>
+      </Member>
+      <Member Name="NumStrings" Type="Int32" Group="Field">
+        <Summary>Number of following strings (nm)</Summary>
+      </Member>
+      <Member Name="StringList" FriendlyName="16" Type="List&lt;String&gt;" Group="Field">
+        <Summary>List of nm Unicode strings, 16-bit string length</Summary>
+      </Member>
+    </Members>
+  </Element>
+  <Element Name="CONTINUE" Parent="Record" Category="Records">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members />
+  </Element>
+  <Element Name="FORMULA" Parent="Record" Category="Records">
+    <Summary />
+    <ClientData />
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members>
+      <Member Name="RowIndex" FriendlyName="" Type="UInt16" Group="Field">
+        <Summary />
+      </Member>
+      <Member Name="ColIndex" FriendlyName="" Type="UInt16" Group="Field">
+        <Summary />
+      </Member>
+      <Member Name="XFIndex" FriendlyName="" Type="UInt16" Group="Field">
+        <Summary />
+      </Member>
+      <Member Name="Result" FriendlyName="" Type="UInt64" Group="Field">
+        <Summary>Result of the formula.</Summary>
+      </Member>
+      <Member Name="OptionFlags" FriendlyName="" Type="UInt16" Group="Field">
+        <Summary />
+      </Member>
+      <Member Name="Unused" FriendlyName="" Type="UInt32" Group="Field">
+        <Summary />
+      </Member>
+      <Member Name="FormulaData" FriendlyName="" Type="Byte[]" Group="Field">
+        <Summary>Formula data (RPN token array)</Summary>
+      </Member>
+    </Members>
+  </Element>
+  <Element Name="XF" Parent="Record" Category="Records">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members>
+      <Member Name="FontIndex" Type="UInt16" Group="Field" />
+      <Member Name="FormatIndex" Type="UInt16" Group="Field" />
+      <Member Name="CellProtection" Type="UInt16" Group="Field" />
+      <Member Name="Alignment" Type="Byte" Group="Field" />
+      <Member Name="Rotation" Type="Byte" Group="Field" />
+      <Member Name="Indent" Type="Byte" Group="Field" />
+      <Member Name="Attributes" Type="Byte" Group="Field" />
+      <Member Name="LineStyle" Type="UInt32" Group="Field" />
+      <Member Name="LineColor" Type="UInt32" Group="Field" />
+      <Member Name="Background" Type="UInt16" Group="Field" />
+    </Members>
+  </Element>
+  <Element Name="PALETTE" Parent="Record" Category="Records">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>true</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members>
+      <Member Name="NumColors" Type="UInt16" Group="Field">
+        <Summary>Number of following colours (nm).</Summary>
+      </Member>
+      <Member Name="RGBColours" Type="List&lt;Int32&gt;" Group="Field">
+        <Summary>List of nm RGB colours</Summary>
+      </Member>
+    </Members>
+  </Element>
+  <Element Name="BITMAP" Parent="Record" Category="Records">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members />
+  </Element>
+  <Element Name="OBJ" Parent="Record" Category="Records">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members />
+  </Element>
+  <Element Name="DATEMODE" Parent="Record" Category="Records">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members>
+      <Member Name="Mode" Type="Int16" Group="Field">
+        <Summary>0 = Base date is 1899-Dec-31; 1 = Base date is 1904-Jan-01</Summary>
+      </Member>
+    </Members>
+  </Element>
+  <Element Name="MSOCONTAINER" Parent="Record" Category="Records">
+    <Summary />
+    <ClientData />
+    <IsAbstract>true</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>true</HasChild>
+    <Members />
+  </Element>
+  <Element Name="MSODRAWINGGROUP" Parent="MSOCONTAINER" Category="Records">
+    <Summary />
+    <ClientData />
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members />
+  </Element>
+  <Element Name="MSODRAWING" Parent="MSOCONTAINER" Category="Records">
+    <Summary />
+    <ClientData />
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members />
+  </Element>
+  <Element Name="MSODRAWINGSELECTION" Parent="MSOCONTAINER" Category="Records">
+    <Summary />
+    <ClientData />
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members />
+  </Element>
+  <Element Name="STRING" Parent="Record" Category="Records">
+    <Summary>List of rt formatting runs</Summary>
+    <ClientData />
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members>
+      <Member Name="Value" FriendlyName="16" Type="String" Group="Field">
+        <Summary>Non-empty Unicode string, 16-bit string length</Summary>
+      </Member>
+    </Members>
+  </Element>
+  <Element Name="SubRecord" Category="SubRecords">
+    <Summary />
+    <ClientData />
+    <IsAbstract>true</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>true</HasChild>
+    <Members />
+  </Element>
+  <Element Name="CommonObjectData" Parent="SubRecord" Category="SubRecords">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members>
+      <Member Name="ObjectType" Type="UInt16" Group="Field" />
+      <Member Name="ObjectID" Type="UInt16" Group="Field" />
+      <Member Name="OptionFlags" Type="UInt16" Group="Field" />
+      <Member Name="Reserved1" Type="UInt32" Group="Field" />
+      <Member Name="Reserved2" Type="UInt32" Group="Field" />
+      <Member Name="Reserved3" Type="UInt32" Group="Field" />
+    </Members>
+  </Element>
+  <Element Name="GroupMarker" Parent="SubRecord" Category="SubRecords">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members />
+  </Element>
+  <Element Name="End" Parent="SubRecord" Category="SubRecords">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members />
+  </Element>
+  <Element Name="EscherRecord" Category="EscherRecords">
+    <IsAbstract>true</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>true</HasChild>
+    <Members />
+  </Element>
+  <Element Name="MsofbtDgg" Parent="EscherRecord" Category="EscherRecords">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>true</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members>
+      <Member Name="MaxShapeID" Type="Int32" Group="Field" />
+      <Member Name="NumIDClusters" Type="Int32" Group="Field" />
+      <Member Name="NumSavedShapes" Type="Int32" Group="Field" />
+      <Member Name="NumSavedDrawings" Type="Int32" Group="Field" />
+      <Member Name="IDClusters" Type="List&lt;Int64&gt;" Group="Field" />
+    </Members>
+  </Element>
+  <Element Name="MsofbtBSE" Parent="EscherRecord" Category="EscherRecords">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>true</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members>
+      <Member Name="BlipTypeWin32" FriendlyName="" Type="Byte" Group="Field">
+        <Summary />
+      </Member>
+      <Member Name="BlipTypeMacOS" FriendlyName="" Type="Byte" Group="Field">
+        <Summary />
+      </Member>
+      <Member Name="UID" FriendlyName="" Type="Guid" Group="Field">
+        <Summary />
+      </Member>
+      <Member Name="Tag" FriendlyName="" Type="UInt16" Group="Field">
+        <Summary />
+      </Member>
+      <Member Name="Size" FriendlyName="" Type="Int32" Group="Field">
+        <Summary />
+      </Member>
+      <Member Name="Ref" FriendlyName="" Type="Int32" Group="Field">
+        <Summary />
+      </Member>
+      <Member Name="Offset " FriendlyName="" Type="Int32" Group="Field">
+        <Summary />
+      </Member>
+      <Member Name="Usage" FriendlyName="" Type="Byte" Group="Field">
+        <Summary />
+      </Member>
+      <Member Name="NameLength" FriendlyName="" Type="Byte" Group="Field">
+        <Summary />
+      </Member>
+      <Member Name="Unused2" FriendlyName="" Type="Byte" Group="Field">
+        <Summary />
+      </Member>
+      <Member Name="Unused3" FriendlyName="" Type="Byte" Group="Field">
+        <Summary />
+      </Member>
+      <Member Name="ExtraData" FriendlyName="" Type="Byte[]" Group="Field">
+        <Summary />
+      </Member>
+    </Members>
+  </Element>
+  <Element Name="MsofbtDg" Parent="EscherRecord" Category="EscherRecords">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members>
+      <Member Name="NumShapes" FriendlyName="" Type="Int32" Group="Field">
+        <Summary />
+      </Member>
+      <Member Name="LastShapeID" FriendlyName="" Type="Int32" Group="Field">
+        <Summary />
+      </Member>
+    </Members>
+  </Element>
+  <Element Name="MsofbtSpgr" Parent="EscherRecord" Category="EscherRecords">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members />
+  </Element>
+  <Element Name="MsofbtSp" Parent="EscherRecord" Category="EscherRecords">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members>
+      <Member Name="ShapeId" FriendlyName="" Type="Int32" Group="Field">
+        <Summary />
+      </Member>
+      <Member Name="Flags" FriendlyName="" Type="Int32" Group="Field">
+        <Summary />
+      </Member>
+    </Members>
+  </Element>
+  <Element Name="MsofbtOPT" Parent="EscherRecord" Category="EscherRecords">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members />
+  </Element>
+  <Element Name="MsofbtTextbox" Parent="EscherRecord" Category="EscherRecords">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members />
+  </Element>
+  <Element Name="MsofbtClientTextbox" Parent="EscherRecord" Category="EscherRecords">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members />
+  </Element>
+  <Element Name="MsofbtAnchor" Parent="EscherRecord" Category="EscherRecords">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members />
+  </Element>
+  <Element Name="MsofbtChildAnchor" Parent="EscherRecord" Category="EscherRecords">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members />
+  </Element>
+  <Element Name="MsofbtClientAnchor" Parent="EscherRecord" Category="EscherRecords">
+    <Summary />
+    <ClientData />
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members>
+      <Member Name="Flag" FriendlyName="" Type="UInt16" Group="Field">
+        <Summary />
+      </Member>
+      <Member Name="Col1" FriendlyName="" Type="UInt16" Group="Field">
+        <Summary />
+      </Member>
+      <Member Name="DX1" FriendlyName="" Type="UInt16" Group="Field">
+        <Summary />
+      </Member>
+      <Member Name="Row1" FriendlyName="" Type="UInt16" Group="Field">
+        <Summary />
+      </Member>
+      <Member Name="DY1" FriendlyName="" Type="UInt16" Group="Field">
+        <Summary />
+      </Member>
+      <Member Name="Col2" FriendlyName="" Type="UInt16" Group="Field">
+        <Summary />
+      </Member>
+      <Member Name="DX2" FriendlyName="" Type="UInt16" Group="Field">
+        <Summary />
+      </Member>
+      <Member Name="Row2" FriendlyName="" Type="UInt16" Group="Field">
+        <Summary />
+      </Member>
+      <Member Name="DY2" FriendlyName="" Type="UInt16" Group="Field">
+        <Summary />
+      </Member>
+      <Member Name="ExtraData" FriendlyName="" Type="Byte[]" Group="Field">
+        <Summary />
+      </Member>
+    </Members>
+  </Element>
+  <Element Name="MsofbtClientData" Parent="EscherRecord" Category="EscherRecords">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members />
+  </Element>
+  <Element Name="MsofbtConnectorRule" Parent="EscherRecord" Category="EscherRecords">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members />
+  </Element>
+  <Element Name="MsofbtAlignRule" Parent="EscherRecord" Category="EscherRecords">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members />
+  </Element>
+  <Element Name="MsofbtArcRule" Parent="EscherRecord" Category="EscherRecords">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members />
+  </Element>
+  <Element Name="MsofbtClientRule" Parent="EscherRecord" Category="EscherRecords">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members />
+  </Element>
+  <Element Name="MsofbtCLSID" Parent="EscherRecord" Category="EscherRecords">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members />
+  </Element>
+  <Element Name="MsofbtCalloutRule" Parent="EscherRecord" Category="EscherRecords">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members />
+  </Element>
+  <Element Name="MsofbtRegroupItems" Parent="EscherRecord" Category="EscherRecords">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members />
+  </Element>
+  <Element Name="MsofbtSelection" Parent="EscherRecord" Category="EscherRecords">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members />
+  </Element>
+  <Element Name="MsofbtColorMRU" Parent="EscherRecord" Category="EscherRecords">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members />
+  </Element>
+  <Element Name="MsofbtDeletedPspl" Parent="EscherRecord" Category="EscherRecords">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members />
+  </Element>
+  <Element Name="MsofbtSplitMenuColors" Parent="EscherRecord" Category="EscherRecords">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members />
+  </Element>
+  <Element Name="MsofbtOleObject" Parent="EscherRecord" Category="EscherRecords">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members />
+  </Element>
+  <Element Name="MsofbtColorScheme" Parent="EscherRecord" Category="EscherRecords">
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members />
+  </Element>
+  <Element Name="MsofbtContainer" Parent="EscherRecord" Category="EscherRecords">
+    <Summary />
+    <ClientData />
+    <IsAbstract>true</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>true</HasChild>
+    <Members />
+  </Element>
+  <Element Name="MsofbtDggContainer" Parent="MsofbtContainer" Category="EscherRecords">
+    <Summary />
+    <ClientData />
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members />
+  </Element>
+  <Element Name="MsofbtDgContainer" Parent="MsofbtContainer" Category="EscherRecords">
+    <Summary />
+    <ClientData />
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members />
+  </Element>
+  <Element Name="MsofbtBstoreContainer" Parent="MsofbtContainer" Category="EscherRecords">
+    <Summary />
+    <ClientData />
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members />
+  </Element>
+  <Element Name="MsofbtSpgrContainer" Parent="MsofbtContainer" Category="EscherRecords">
+    <Summary />
+    <ClientData />
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members />
+  </Element>
+  <Element Name="MsofbtSpContainer" Parent="MsofbtContainer" Category="EscherRecords">
+    <Summary />
+    <ClientData />
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members />
+  </Element>
+  <Element Name="MsofbtSolverContainer" Parent="MsofbtContainer" Category="EscherRecords">
+    <Summary />
+    <ClientData />
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members />
+  </Element>
+  <Element Name="MsofbtBlip" Parent="EscherRecord" Category="EscherRecords">
+    <Summary />
+    <ClientData />
+    <IsAbstract>true</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>true</HasChild>
+    <Members />
+  </Element>
+  <Element Name="MsofbtBlipStart" Parent="MsofbtBlip" Category="EscherRecords">
+    <Summary />
+    <ClientData />
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members />
+  </Element>
+  <Element Name="MsofbtBlipBitmapPS" Parent="MsofbtBlip" Category="EscherRecords">
+    <Summary />
+    <ClientData />
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members />
+  </Element>
+  <Element Name="MsofbtBlipBitmapJPEG" Parent="MsofbtBlip" Category="EscherRecords">
+    <Summary />
+    <ClientData />
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members />
+  </Element>
+  <Element Name="MsofbtBlipBitmapPNG" Parent="MsofbtBlip" Category="EscherRecords">
+    <Summary />
+    <ClientData />
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members />
+  </Element>
+  <Element Name="MsofbtBlipBitmapDIB" Parent="MsofbtBlip" Category="EscherRecords">
+    <Summary />
+    <ClientData />
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members />
+  </Element>
+  <Element Name="MsofbtBlipEnd" Parent="MsofbtBlip" Category="EscherRecords">
+    <Summary />
+    <ClientData />
+    <IsAbstract>false</IsAbstract>
+    <IsValueNode>false</IsValueNode>
+    <HasChild>false</HasChild>
+    <Members />
+  </Element>
+</ArrayOfElement>

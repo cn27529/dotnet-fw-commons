@@ -1,0 +1,19 @@
+{
+  "name": "dotnet-fw-commons",
+  "version": "1.0.0",
+  "description": "dotnet framework commons project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cn27529/dotnet-fw-commons.git"
+  },
+  "author": "cn27529",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cn27529/dotnet-fw-commons/issues"
+  },
+  "homepage": "https://github.com/cn27529/dotnet-fw-commons#readme"
+}

@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Commons</name>
+    </assembly>
+    <members>
+        <member name="T:Commons.LogController">
+            <summary>
+            LOG記錄檔
+            </summary>
+        </member>
+        <member name="M:Commons.LogController.WriteLog(System.String,System.String)">
+            <summary>
+            建立LOG檔案
+            </summary>
+            <param name="methodName">LOG名稱</param>
+            <param name="errMsg">記錄的訊息</param>
+        </member>
+        <member name="M:Commons.LogController.WriteLog(System.String,System.String,System.String)">
+            <summary>
+            建立LOG檔案
+            </summary>
+            <param name="methodName">LOG名稱</param>
+            <param name="errMsg">記錄的訊息</param>
+            <param name="fileName">LOG檔的檔案名稱</param>
+        </member>
+        <member name="M:Commons.LogController.WriteErrorMessageToWindowsEventlog(System.String)">
+            <summary>
+            asp的應用程序錯誤訊息加至windows事件檢視器中 create-by bruce 20091109
+            </summary>
+        </member>
+        <member name="T:Commons.ListSort`1">
+            <summary>
+            泛型集合排序
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Commons.ListSort`1.GetList(System.Collections.Generic.IList{`0}@,System.String,System.Boolean)">
+            <summary>
+            取得泛型集合的排序
+            </summary>
+            <param name="ilist"></param>
+            <param name="sort">排序名稱</param>
+            <param name="isDesc">是否逆向排序</param>
+            <returns></returns>
+        </member>
+        <member name="T:Commons.ListObjToDataSet">
+            <summary>
+            泛型集合轉換為Dataset物件的摘要描述
+            </summary>
+        </member>
+        <member name="M:Commons.ListObjToDataSet.ListToDataSet(System.Collections.IList)">
+            <summary>
+            泛型集合轉換為Dataset物件
+            </summary>
+            <param name="ResList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Commons.ClassStr">
+            <summary>
+            字符串的應用類別
+            </summary>
+        </member>
+        <member name="M:Commons.ClassStr.LeftByte(System.Object,System.Int32,System.String)">
+            <summary>
+            取得某長度的字元
+            </summary>
+            <param name="ostr">來源</param>
+            <param name="vLength">長度</param>
+            <param name="vstrExtend">延伸文字</param>
+            <returns></returns>
+        </member>
+        <member name="M:Commons.ClassStr.GetstringLen(System.Object)">
+            <summary>
+            取得字元長度
+            </summary>
+            <param name="ostr">來源</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

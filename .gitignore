@@ -1,0 +1,8 @@
+node_modules
+npm-debug.log
+*.sqlite
+.bash_profile
+logs
+package-lock.json
+robots.txt
+

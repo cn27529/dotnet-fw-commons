@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D20BB249-7048-45DD-AFB1-1164495F5B3B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Commons</RootNamespace>
+    <AssemblyName>Commons</AssemblyName>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <PublishUrl>發行\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AntiXSSLibrary, Version=4.0.0.0, Culture=neutral, PublicKeyToken=d127efab8a9c114f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\AntiXSSLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="DiffieHellman, Version=0.0.0.0, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\DiffieHellman.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelDataReader, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\ExcelDataReader.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlSanitizationLibrary, Version=4.0.0.0, Culture=neutral, PublicKeyToken=d127efab8a9c114f, processorArchitecture=MSIL" />
+    <Reference Include="Ionic.Zip, Version=1.9.1.5, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="NPOI, Version=1.2.5.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="Org.Mentalis.Security, Version=1.0.13.715, Culture=neutral" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Tamir.SharpSSH, Version=1.1.1.13, Culture=neutral, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AES.cs" />
+    <Compile Include="AntiXSS.cs" />
+    <Compile Include="ClassStr.cs" />
+    <Compile Include="ConfigSmtp.cs" />
+    <Compile Include="ConsoleHelp.cs" />
+    <Compile Include="ConvertHtmlCode.cs" />
+    <Compile Include="Des.cs" />
+    <Compile Include="ExcelConverter.cs" />
+    <Compile Include="ExcelReader\CodeLib\Encoder\Bin2Hex.cs" />
+    <Compile Include="ExcelReader\CodeLib\FileIO.cs" />
+    <Compile Include="ExcelReader\CodeLib\FileSelector.cs" />
+    <Compile Include="ExcelReader\CodeLib\Pair.cs" />
+    <Compile Include="ExcelReader\CodeLib\StreamHelper.cs" />
+    <Compile Include="ExcelReader\Office\CompoundDocumentFormat\CompoundDocument.cs" />
+    <Compile Include="ExcelReader\Office\CompoundDocumentFormat\CompoundFileHeader.cs" />
+    <Compile Include="ExcelReader\Office\CompoundDocumentFormat\DirectoryEntry.cs" />
+    <Compile Include="ExcelReader\Office\CompoundDocumentFormat\Endianness.cs" />
+    <Compile Include="ExcelReader\Office\CompoundDocumentFormat\EntryType.cs" />
+    <Compile Include="ExcelReader\Office\CompoundDocumentFormat\FileHeader.cs" />
+    <Compile Include="ExcelReader\Office\CompoundDocumentFormat\NodeColor.cs" />
+    <Compile Include="ExcelReader\Office\CompoundDocumentFormat\SID.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Cell.cs" />
+    <Compile Include="ExcelReader\Office\Excel\CellCollection.cs" />
+    <Compile Include="ExcelReader\Office\Excel\ColorPalette.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Enums\ErrorCode.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Enums\EscherRecordType.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Enums\PropertyIDs.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Enums\RecordType.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Enums\SheetType.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Enums\StreamType.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Enums\SubRecordType.cs" />
+    <Compile Include="ExcelReader\Office\Excel\EscherRecord.cs" />
+    <Compile Include="ExcelReader\Office\Excel\EscherRecords\EscherRecord.cs" />
+    <Compile Include="ExcelReader\Office\Excel\EscherRecords\MsofbtAlignRule.cs" />
+    <Compile Include="ExcelReader\Office\Excel\EscherRecords\MsofbtAnchor.cs" />
+    <Compile Include="ExcelReader\Office\Excel\EscherRecords\MsofbtArcRule.cs" />
+    <Compile Include="ExcelReader\Office\Excel\EscherRecords\MsofbtBlip.cs" />
+    <Compile Include="ExcelReader\Office\Excel\EscherRecords\MsofbtBlipBitmapDIB.cs" />
+    <Compile Include="ExcelReader\Office\Excel\EscherRecords\MsofbtBlipBitmapJPEG.cs" />
+    <Compile Include="ExcelReader\Office\Excel\EscherRecords\MsofbtBlipBitmapPNG.cs" />
+    <Compile Include="ExcelReader\Office\Excel\EscherRecords\MsofbtBlipBitmapPS.cs" />
+    <Compile Include="ExcelReader\Office\Excel\EscherRecords\MsofbtBlipEnd.cs" />
+    <Compile Include="ExcelReader\Office\Excel\EscherRecords\MsofbtBlipStart.cs" />
+    <Compile Include="ExcelReader\Office\Excel\EscherRecords\MsofbtBSE.cs" />
+    <Compile Include="ExcelReader\Office\Excel\EscherRecords\MsofbtBstoreContainer.cs" />
+    <Compile Include="ExcelReader\Office\Excel\EscherRecords\MsofbtCalloutRule.cs" />
+    <Compile Include="ExcelReader\Office\Excel\EscherRecords\MsofbtChildAnchor.cs" />
+    <Compile Include="ExcelReader\Office\Excel\EscherRecords\MsofbtClientAnchor.cs" />
+    <Compile Include="ExcelReader\Office\Excel\EscherRecords\MsofbtClientData.cs" />
+    <Compile Include="ExcelReader\Office\Excel\EscherRecords\MsofbtClientRule.cs" />
+    <Compile Include="ExcelReader\Office\Excel\EscherRecords\MsofbtClientTextbox.cs" />
+    <Compile Include="ExcelReader\Office\Excel\EscherRecords\MsofbtCLSID.cs" />
+    <Compile Include="ExcelReader\Office\Excel\EscherRecords\MsofbtColorMRU.cs" />
+    <Compile Include="ExcelReader\Office\Excel\EscherRecords\MsofbtColorScheme.cs" />
+    <Compile Include="ExcelReader\Office\Excel\EscherRecords\MsofbtConnectorRule.cs" />
+    <Compile Include="ExcelReader\Office\Excel\EscherRecords\MsofbtContainer.cs" />
+    <Compile Include="ExcelReader\Office\Excel\EscherRecords\MsofbtDeletedPspl.cs" />
+    <Compile Include="ExcelReader\Office\Excel\EscherRecords\MsofbtDg.cs" />
+    <Compile Include="ExcelReader\Office\Excel\EscherRecords\MsofbtDgContainer.cs" />
+    <Compile Include="ExcelReader\Office\Excel\EscherRecords\MsofbtDgg.cs" />
+    <Compile Include="ExcelReader\Office\Excel\EscherRecords\MsofbtDggContainer.cs" />
+    <Compile Include="ExcelReader\Office\Excel\EscherRecords\MsofbtOleObject.cs" />
+    <Compile Include="ExcelReader\Office\Excel\EscherRecords\MsofbtOPT.cs" />
+    <Compile Include="ExcelReader\Office\Excel\EscherRecords\MsofbtRegroupItems.cs" />
+    <Compile Include="ExcelReader\Office\Excel\EscherRecords\MsofbtSelection.cs" />
+    <Compile Include="ExcelReader\Office\Excel\EscherRecords\MsofbtSolverContainer.cs" />
+    <Compile Include="ExcelReader\Office\Excel\EscherRecords\MsofbtSp.cs" />
+    <Compile Include="ExcelReader\Office\Excel\EscherRecords\MsofbtSpContainer.cs" />
+    <Compile Include="ExcelReader\Office\Excel\EscherRecords\MsofbtSpgr.cs" />
+    <Compile Include="ExcelReader\Office\Excel\EscherRecords\MsofbtSpgrContainer.cs" />
+    <Compile Include="ExcelReader\Office\Excel\EscherRecords\MsofbtSplitMenuColors.cs" />
+    <Compile Include="ExcelReader\Office\Excel\EscherRecords\MsofbtTextbox.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Extended\BOOLERR.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Extended\FORMULA.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Extended\MSOCONTAINER.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Extended\MsofbtBSE.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Extended\MsofbtContainer.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Extended\MsofbtDgg.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Extended\MsofbtDggContainer.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Extended\MsofbtOPT.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Extended\MULRK.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Extended\OBJ.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Extended\PALETTE.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Extended\SST.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Extended\XF.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Picture.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Record.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Records\ARRAY.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Records\BACKUP.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Records\BITMAP.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Records\BLANK.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Records\BOF.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Records\BOOKBOOL.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Records\BOOLERR.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Records\BOTTOMMARGIN.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Records\BOUNDSHEET.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Records\CALCCOUNT.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Records\CALCMODE.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Records\CODEPAGE.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Records\CONTINUE.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Records\DATEMODE.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Records\DIMENSIONS.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Records\FORMULA.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Records\LABELSST.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Records\MSOCONTAINER.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Records\MSODRAWING.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Records\MSODRAWINGGROUP.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Records\MSODRAWINGSELECTION.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Records\MULBLANK.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Records\MULRK.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Records\NUMBER.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Records\OBJ.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Records\PALETTE.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Records\Record.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Records\RK.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Records\ROW.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Records\RSTRING.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Records\SST.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Records\STRING.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Records\XF.cs" />
+    <Compile Include="ExcelReader\Office\Excel\ShapeProperty.cs" />
+    <Compile Include="ExcelReader\Office\Excel\SubRecord.cs" />
+    <Compile Include="ExcelReader\Office\Excel\SubRecords\CommonObjectData.cs" />
+    <Compile Include="ExcelReader\Office\Excel\SubRecords\End.cs" />
+    <Compile Include="ExcelReader\Office\Excel\SubRecords\GroupMarker.cs" />
+    <Compile Include="ExcelReader\Office\Excel\SubRecords\SubRecord.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Workbook.cs" />
+    <Compile Include="ExcelReader\Office\Excel\Worksheet.cs" />
+    <Compile Include="FileAccess.cs" />
+    <Compile Include="GenUniqueID.cs" />
+    <Compile Include="IDCheck.cs" />
+    <Compile Include="ListObjToDataSet.cs" />
+    <Compile Include="ListSort.cs" />
+    <Compile Include="LogController.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SimpleSftp.cs" />
+    <Compile Include="SimpleSmtp.cs" />
+    <Compile Include="TrimString.cs" />
+    <Compile Include="Triple3DES.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ExcelReader\Office\Excel\MetaData\EscherRecordTypes.txt" />
+    <Content Include="ExcelReader\Office\Excel\MetaData\Excel.xml" />
+    <Content Include="ExcelReader\Office\Excel\MetaData\Record Identifier.txt" />
+    <Content Include="Lib\AntiXSSLibrary.dll" />
+    <Content Include="Lib\DiffieHellman.dll" />
+    <Content Include="Lib\ExcelDataReader.dll" />
+    <Content Include="Lib\HtmlSanitizationLibrary.dll" />
+    <Content Include="Lib\Ionic.Zip.dll" />
+    <Content Include="Lib\NPOI.dll" />
+    <Content Include="Lib\Org.Mentalis.Security.dll" />
+    <Content Include="Lib\Tamir.SharpSSH.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,11 @@
+D:\Projects\Commons\Commons-VS2012\bin\Release\Commons.dll
+D:\Projects\Commons\Commons-VS2012\bin\Release\Commons.pdb
+D:\Projects\Commons\Commons-VS2012\bin\Release\AntiXSSLibrary.dll
+D:\Projects\Commons\Commons-VS2012\bin\Release\DiffieHellman.dll
+D:\Projects\Commons\Commons-VS2012\bin\Release\ExcelDataReader.dll
+D:\Projects\Commons\Commons-VS2012\bin\Release\HtmlSanitizationLibrary.dll
+D:\Projects\Commons\Commons-VS2012\bin\Release\Org.Mentalis.Security.dll
+D:\Projects\Commons\Commons-VS2012\bin\Release\Tamir.SharpSSH.dll
+D:\Projects\Commons\Commons-VS2012\obj\Release\Commons.dll
+D:\Projects\Commons\Commons-VS2012\obj\Release\Commons.pdb
+D:\Projects\Commons\Commons-VS2012\obj\Release\Commons.csprojResolveAssemblyReference.cache

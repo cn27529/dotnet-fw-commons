@@ -1,0 +1,17 @@
+D:\MyDoc\Job\CDC\Commons\bin\Debug\Commons.dll
+D:\MyDoc\Job\CDC\Commons\bin\Debug\Commons.pdb
+D:\MyDoc\Job\CDC\Commons\obj\Debug\ResolveAssemblyReference.cache
+D:\MyDoc\Job\CDC\Commons\obj\Debug\Commons.dll
+D:\MyDoc\Job\CDC\Commons\obj\Debug\Commons.pdb
+D:\Projects\Commons\Commons-VS2012\bin\Debug\Commons.dll
+D:\Projects\Commons\Commons-VS2012\bin\Debug\Commons.pdb
+D:\Projects\Commons\Commons-VS2012\bin\Debug\AntiXSSLibrary.dll
+D:\Projects\Commons\Commons-VS2012\bin\Debug\DiffieHellman.dll
+D:\Projects\Commons\Commons-VS2012\bin\Debug\ExcelDataReader.dll
+D:\Projects\Commons\Commons-VS2012\bin\Debug\HtmlSanitizationLibrary.dll
+D:\Projects\Commons\Commons-VS2012\bin\Debug\Org.Mentalis.Security.dll
+D:\Projects\Commons\Commons-VS2012\bin\Debug\Tamir.SharpSSH.dll
+D:\Projects\Commons\Commons-VS2012\obj\Debug\Commons.dll
+D:\Projects\Commons\Commons-VS2012\obj\Debug\Commons.pdb
+D:\Projects\Commons\Commons-VS2012\bin\Debug\Ionic.Zip.dll
+D:\Projects\Commons\Commons-VS2012\bin\Debug\NPOI.dll
