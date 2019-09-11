@@ -25,8 +25,8 @@ D:\Git\dotnet-fw-commons\bin\Debug\Ionic.Zip.dll
 D:\Git\dotnet-fw-commons\bin\Debug\NPOI.dll
 D:\Git\dotnet-fw-commons\bin\Debug\Org.Mentalis.Security.dll
 D:\Git\dotnet-fw-commons\bin\Debug\Tamir.SharpSSH.dll
-D:\Git\dotnet-fw-commons\obj\Debug\Commons.csprojAssemblyReference.cache
 D:\Git\dotnet-fw-commons\obj\Debug\Commons.csproj.CoreCompileInputs.cache
 D:\Git\dotnet-fw-commons\obj\Debug\Commons.csproj.CopyComplete
 D:\Git\dotnet-fw-commons\obj\Debug\Commons.dll
 D:\Git\dotnet-fw-commons\obj\Debug\Commons.pdb
+D:\Git\dotnet-fw-commons\bin\Debug\Commons.dll.config
