@@ -9,10 +9,10 @@ using System.Web;
 namespace Commons
 {
     /// <summary>
-    /// Mail µo°e¤¸¥ó , §Q¥Î Commons.ConfigSmtp Ãş§O§Ö³t«Ø¥ßºô¯¸µo°e E-MAIL ¸Ñ¨M¤èªk
+    /// Mail ç™¼é€å…ƒä»¶ , åˆ©ç”¨ Commons.ConfigSmtp é¡åˆ¥å¿«é€Ÿå»ºç«‹ç¶²ç«™ç™¼é€ E-MAIL è§£æ±ºæ–¹æ³•
     /// </summary>
     /// <remarks>
-    /// ¥H³]©wÀÉ¤è¦¡±N¤U¦C°Ñ¼Æ³]©w©ó WEB ¯¸¥x²ÕºA³]©wÀÉ°Ï¶ô¤º , 
+    /// ä»¥è¨­å®šæª”æ–¹å¼å°‡ä¸‹åˆ—åƒæ•¸è¨­å®šæ–¼ WEB ç«™å°çµ„æ…‹è¨­å®šæª”å€å¡Šå…§ , 
     /// <system.net>
     /// <mailSettings>
     ///   <smtp deliveryMethod="Network">
@@ -27,44 +27,44 @@ namespace Commons
     public class ConfigSmtp
     {
         /// <summary>
-        /// SendMail µo°e¶l¥ó
+        /// SendMail ç™¼é€éƒµä»¶
         /// </summary>
-        /// <param name="mailToArray">¹ï¤è¶l¥ó¦a§}</param>
-        /// <param name="fromMail">¨Ó·½¦a§}</param>
-        /// <param name="fromDisplayName">¨Ó·½¦a§}§O¦W</param>
-        /// <param name="subject">¥D¦®</param>
-        /// <param name="body">¤º®e</param>
+        /// <param name="mailToArray">å°æ–¹éƒµä»¶åœ°å€</param>
+        /// <param name="fromMail">ä¾†æºåœ°å€</param>
+        /// <param name="fromDisplayName">ä¾†æºåœ°å€åˆ¥å</param>
+        /// <param name="subject">ä¸»æ—¨</param>
+        /// <param name="body">å…§å®¹</param>
         /// <returns></returns>
         public static bool SendMail(string[] mailToArray, string fromMail, string fromDisplayName, string subject, string body)
         {
             SmtpClient s = ConfigSmtp.CreationSmtpClient();
-            NetworkCredential nc = (NetworkCredential) s.Credentials;
+            NetworkCredential nc = (NetworkCredential)s.Credentials;
             MailMessage smail = ConfigSmtp.CreationMailMessage();
             bool resilt = false;
 
-            if ( fromDisplayName == "" && fromMail == "" )
+            if (string.IsNullOrWhiteSpace(fromDisplayName) && string.IsNullOrWhiteSpace(fromMail))
                 smail.From = new MailAddress(nc.UserName, ConfigSmtp.ServiceMailDiaplayName);
-            else if ( fromDisplayName != "" && fromMail == "" )
+            else if (fromDisplayName != string.Empty && string.IsNullOrWhiteSpace(fromMail))
                 smail.From = new MailAddress(nc.UserName, fromDisplayName);
-            else if ( fromDisplayName == "" && fromMail != "" )
+            else if (string.IsNullOrWhiteSpace(fromDisplayName) && fromMail != string.Empty)
                 smail.From = new MailAddress(fromMail, ConfigSmtp.ServiceMailDiaplayName);
-            else if ( fromDisplayName != "" && fromMail != "" )
+            else if (fromDisplayName != string.Empty && fromMail != string.Empty)
                 smail.From = new MailAddress(fromMail, fromDisplayName);
 
             try
             {
-                if ( CheckMailTo(mailToArray) ) { throw MailToAddressException(); }
+                if (CheckMailTo(mailToArray)) { throw MailToAddressException(); }
                 smail.Subject = subject.Trim();
                 smail.Body = body.Trim();
-                foreach ( string address in mailToArray ) { smail.To.Add(new MailAddress(address.Trim())); }
+                foreach (string address in mailToArray) { smail.To.Add(new MailAddress(address.Trim())); }
                 s.Send(smail);
                 resilt = true;
             }
-            catch ( System.FormatException ex )
+            catch (System.FormatException ex)
             {
                 throw ex;
             }
-            catch ( System.Net.Mail.SmtpException ex )
+            catch (System.Net.Mail.SmtpException ex)
             {
                 throw ex;
             }
@@ -74,39 +74,39 @@ namespace Commons
 
 
         /// <summary>
-        /// SendMail µo°e¶l¥ó
+        /// SendMail ç™¼é€éƒµä»¶
         /// </summary>
-        /// <param name="mailToArray">¹ï¤è¶l¥ó¦a§}</param>
-        /// <param name="fromDisplayName">¨Ó·½¦a§}§O¦W</param>
-        /// <param name="subject">¥D¦®</param>
-        /// <param name="body">¤º®e</param>
+        /// <param name="mailToArray">å°æ–¹éƒµä»¶åœ°å€</param>
+        /// <param name="fromDisplayName">ä¾†æºåœ°å€åˆ¥å</param>
+        /// <param name="subject">ä¸»æ—¨</param>
+        /// <param name="body">å…§å®¹</param>
         /// <returns></returns>
         public static bool SendMail(string[] mailToArray, string fromDisplayName, string subject, string body)
         {
             SmtpClient s = ConfigSmtp.CreationSmtpClient();
-            NetworkCredential nc = (NetworkCredential) s.Credentials;
+            NetworkCredential nc = (NetworkCredential)s.Credentials;
             MailMessage smail = ConfigSmtp.CreationMailMessage();
             bool resilt = false;
 
-            if ( fromDisplayName == "" )
+            if (string.IsNullOrWhiteSpace(fromDisplayName))
                 smail.From = new MailAddress(nc.UserName);
             else
                 smail.From = new MailAddress(nc.UserName, fromDisplayName);
 
             try
             {
-                if ( CheckMailTo(mailToArray) ) { throw MailToAddressException(); }
+                if (CheckMailTo(mailToArray)) { throw MailToAddressException(); }
                 smail.Subject = subject.Trim();
                 smail.Body = body.Trim();
-                foreach ( string address in mailToArray ) { smail.To.Add(new MailAddress(address.Trim())); }
+                foreach (string address in mailToArray) { smail.To.Add(new MailAddress(address.Trim())); }
                 s.Send(smail);
                 resilt = true;
             }
-            catch ( System.FormatException ex )
+            catch (System.FormatException ex)
             {
                 throw ex;
             }
-            catch ( System.Net.Mail.SmtpException ex )
+            catch (System.Net.Mail.SmtpException ex)
             {
                 throw ex;
             }
@@ -115,30 +115,30 @@ namespace Commons
         }
 
         /// <summary>
-        /// SendMail µo°e¶l¥ó
+        /// SendMail ç™¼é€éƒµä»¶
         /// </summary>
-        /// <param name="mailToArray">¹ï¤è¶l¥ó¦a§}</param>
-        /// <param name="mailToDisplayNameArray">¹ï¤è¦a§}§O¦W</param>
-        /// <param name="fromDisplayName">¨Ó·½¦a§}§O¦W</param>
-        /// <param name="subject">¥D¦®</param>
-        /// <param name="body">¤º®e</param>
+        /// <param name="mailToArray">å°æ–¹éƒµä»¶åœ°å€</param>
+        /// <param name="mailToDisplayNameArray">å°æ–¹åœ°å€åˆ¥å</param>
+        /// <param name="fromDisplayName">ä¾†æºåœ°å€åˆ¥å</param>
+        /// <param name="subject">ä¸»æ—¨</param>
+        /// <param name="body">å…§å®¹</param>
         /// <returns></returns>
         public static bool SendMail(string[] mailToArray, string[] mailToDisplayNameArray, string fromDisplayName, string subject, string body)
         {
             SmtpClient s = ConfigSmtp.CreationSmtpClient();
-            NetworkCredential nc = (NetworkCredential) s.Credentials;
+            NetworkCredential nc = (NetworkCredential)s.Credentials;
             MailMessage smail = ConfigSmtp.CreationMailMessage();
             smail.From = new MailAddress(nc.UserName, fromDisplayName);
             bool resilt = false;
 
             try
             {
-                if ( CheckMailTo(mailToArray) ) { throw MailToAddressException(); }
+                if (CheckMailTo(mailToArray)) { throw MailToAddressException(); }
                 smail.Subject = subject.Trim();
                 smail.Body = body.Trim();
-                for ( int i = 0 ; i < mailToArray.Length ; i++ )
+                for (int i = 0; i < mailToArray.Length; i++)
                 {
-                    if ( mailToDisplayNameArray.Length == mailToArray.Length )
+                    if (mailToDisplayNameArray.Length == mailToArray.Length)
                         smail.To.Add(new MailAddress(mailToArray[i].Trim(), mailToDisplayNameArray[i].Trim()));
                     else
                         smail.To.Add(new MailAddress(mailToArray[i].Trim()));
@@ -146,11 +146,11 @@ namespace Commons
                 s.Send(smail);
                 resilt = true;
             }
-            catch ( System.FormatException ex )
+            catch (System.FormatException ex)
             {
                 throw ex;
             }
-            catch ( System.Net.Mail.SmtpException ex )
+            catch (System.Net.Mail.SmtpException ex)
             {
                 throw ex;
             }
@@ -159,27 +159,27 @@ namespace Commons
         }
 
         /// <summary>
-        /// SendMail µo°e¶l¥ó
+        /// SendMail ç™¼é€éƒµä»¶
         /// </summary>
-        /// <param name="mailToArray">¹ï¤è¶l¥ó¦a§}</param>
-        /// <param name="mailToDisplayNameArray">¹ï¤è¦a§}§O¦W</param>
-        /// <param name="subject">¥D¦®</param>
-        /// <param name="body">¤º®e</param>
+        /// <param name="mailToArray">å°æ–¹éƒµä»¶åœ°å€</param>
+        /// <param name="mailToDisplayNameArray">å°æ–¹åœ°å€åˆ¥å</param>
+        /// <param name="subject">ä¸»æ—¨</param>
+        /// <param name="body">å…§å®¹</param>
         /// <returns></returns>
         public static bool SendMail(string[] mailToArray, string[] mailToDisplayNameArray, string subject, string body)
         {
             SmtpClient s = ConfigSmtp.CreationSmtpClient();
-            NetworkCredential nc = (NetworkCredential) s.Credentials;
+            NetworkCredential nc = (NetworkCredential)s.Credentials;
             MailMessage smail = ConfigSmtp.CreationMailMessage();
             bool resilt = false;
             try
             {
-                if ( CheckMailTo(mailToArray) ) { throw MailToAddressException(); }
+                if (CheckMailTo(mailToArray)) { throw MailToAddressException(); }
                 smail.Subject = subject.Trim();
                 smail.Body = body.Trim();
-                for ( int i = 0 ; i < mailToArray.Length ; i++ )
+                for (int i = 0; i < mailToArray.Length; i++)
                 {
-                    if ( mailToDisplayNameArray.Length == mailToArray.Length )
+                    if (mailToDisplayNameArray.Length == mailToArray.Length)
                         smail.To.Add(new MailAddress(mailToArray[i].Trim(), mailToDisplayNameArray[i].Trim()));
                     else
                         smail.To.Add(new MailAddress(mailToArray[i].Trim()));
@@ -187,75 +187,75 @@ namespace Commons
                 s.Send(smail);
                 resilt = true;
             }
-            catch ( System.FormatException ex )
+            catch (System.FormatException ex)
             {
                 throw ex;
             }
-            catch ( System.Net.Mail.SmtpException ex )
+            catch (System.Net.Mail.SmtpException ex)
             {
                 throw ex;
             }
-           
+
 
             finally { smail.Dispose(); }
             return resilt;
         }
 
         /// <summary>
-        /// SendMail µo°e¶l¥ó
+        /// SendMail ç™¼é€éƒµä»¶
         /// </summary>
-        /// <param name="mailToArray">¹ï¤è¶l¥ó¦a§}</param>
-        /// <param name="subject">¥D¦®</param>
-        /// <param name="body">¤º®e</param>
+        /// <param name="mailToArray">å°æ–¹éƒµä»¶åœ°å€</param>
+        /// <param name="subject">ä¸»æ—¨</param>
+        /// <param name="body">å…§å®¹</param>
         /// <returns></returns>
         public static bool SendMail(string[] mailToArray, string subject, string body)
         {
             SmtpClient s = ConfigSmtp.CreationSmtpClient();
-            NetworkCredential nc = (NetworkCredential) s.Credentials;
+            NetworkCredential nc = (NetworkCredential)s.Credentials;
             MailMessage smail = ConfigSmtp.CreationMailMessage();
             bool resilt = false;
             try
             {
-                if ( CheckMailTo(mailToArray) ) { throw MailToAddressException(); }
+                if (CheckMailTo(mailToArray)) { throw MailToAddressException(); }
                 smail.Subject = subject.Trim();
                 smail.Body = body.Trim();
-                foreach ( string address in mailToArray ) { smail.To.Add(new MailAddress(address.Trim())); }
+                foreach (string address in mailToArray) { smail.To.Add(new MailAddress(address.Trim())); }
                 s.Send(smail);
                 resilt = true;
             }
-            catch ( System.Net.Mail.SmtpException ex ) { throw ex; }
+            catch (System.Net.Mail.SmtpException ex) { throw ex; }
             finally { smail.Dispose(); }
             return resilt;
         }
 
-        private static Exception MailToAddressException() { return new Exception("¹ï¤è¶l¥ó¤Ş¼Æ¦³°İÃD"); }
+        private static Exception MailToAddressException() { return new Exception("å°æ–¹éƒµä»¶å¼•æ•¸æœ‰å•é¡Œ"); }
 
         /// <summary>
-        /// ÀË¬d¶l¥ó
+        /// æª¢æŸ¥éƒµä»¶
         /// </summary>
-        /// <param name="mailArray">¶l¥ó°}¦C</param>
+        /// <param name="mailArray">éƒµä»¶é™£åˆ—</param>
         /// <returns></returns>
         private static bool CheckMailTo(string[] mailArray)
         {
             bool result = false;
-            if ( mailArray == null || mailArray.Length == 0 ) { result = true; }
+            if (mailArray == null || mailArray.Length == 0) { result = true; }
             return result;
         }
 
         /// <summary>
-        /// ¨ú±o SmtpClient ª«¥ó
+        /// å–å¾— SmtpClient ç‰©ä»¶
         /// </summary>
         /// <returns>SmtpClient</returns>
         private static SmtpClient CreationSmtpClient() { return new SmtpClient(); }
 
         /// <summary>
-        /// ¨ú±o MailMessage ª«¥ó
+        /// å–å¾— MailMessage ç‰©ä»¶
         /// </summary>
         /// <returns>MailMessage</returns>
         private static MailMessage CreationMailMessage()
         {
             SmtpClient s = ConfigSmtp.CreationSmtpClient();
-            NetworkCredential nc = (NetworkCredential) s.Credentials;
+            NetworkCredential nc = (NetworkCredential)s.Credentials;
             //string fromMail = nc.UserName; //system mail address
             string fromDisplayName = ConfigSmtp.ServiceMailDiaplayName; //mail address display name
             MailMessage smail = new MailMessage();
@@ -271,17 +271,17 @@ namespace Commons
         }
 
         /// <summary>
-        /// SMTP ¦øªA¾¹¦WºÙ
+        /// SMTP ä¼ºæœå™¨åç¨±
         /// </summary>
         private static string SmtpServer = System.Configuration.ConfigurationManager.AppSettings["SmtpServer"].ToString();
 
         /// <summary>
-        /// ¨t²ÎªA°È Mail address
+        /// ç³»çµ±æœå‹™ Mail address
         /// </summary>
         private static string ServiceEmailAddress = System.Configuration.ConfigurationManager.AppSettings["ServiceMailAddress"].ToString();
 
         /// <summary>
-        /// ¨t²Îµo°e¼ĞÃD Mail title
+        /// ç³»çµ±ç™¼é€æ¨™é¡Œ Mail title
         /// </summary>
         private static string ServiceMailDiaplayName = System.Configuration.ConfigurationManager.AppSettings["ServiceMailDisplayName"].ToString();
     }
